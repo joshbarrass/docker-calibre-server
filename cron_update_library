@@ -1,0 +1,1 @@
+*/10 * * * * xvfb-run calibredb add /newbooks/ -r --with-library /library && rm /newbooks/*

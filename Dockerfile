@@ -4,7 +4,7 @@ ARG VERSION=4.17.0
 
 # install dependencies
 RUN apt-get update \
-  && apt-get install -y python wget tar xz-utils xvfb imagemagick libnss3 \
+  && apt-get install -y python wget tar xz-utils xvfb imagemagick libnss3 cron \
   && rm -rf /var/lib/apt/lists/*
 
 
@@ -25,6 +25,9 @@ WORKDIR /opt/calibre
 RUN /opt/calibre/calibre_postinstall > /dev/null
 COPY run.sh run.sh
 RUN chmod +x run.sh
+COPY cron_update_library /etc/cron.d/cron_update_library
+RUN chmod 0744 /etc/cron.d/cron_update_library \
+  && crontab /etc/cron.d/cron_update_library
 
 # set up library and configs
 VOLUME /library

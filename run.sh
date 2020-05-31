@@ -16,6 +16,10 @@ then
     ./calibre-server --userdb /config/users.sqlite --manage-users
 fi
 
+# make sure cron is running
+echo "Starting cron..."
+cron
+
 TORUN="$TORUN /library"
 echo -e "\n$TORUN $@"
 exec $TORUN $@
