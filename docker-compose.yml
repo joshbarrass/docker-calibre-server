@@ -10,8 +10,8 @@ services:
       - 8080:8080
     volumes:
       - calibre-config:/config
-      - calibre-library:/library
-      - <books>:/books:ro
+      - <library>:/library
+      - <new books>:/newbooks
 volumes:
   calibre-config:
-  calibre-library:
+  
