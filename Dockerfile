@@ -29,6 +29,7 @@ RUN chmod +x run.sh
 # set up library and configs
 VOLUME /library
 VOLUME /config
+VOLUME /books
 
 EXPOSE 8080
 ENTRYPOINT ["./run.sh"]
