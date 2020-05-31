@@ -1,0 +1,15 @@
+version: '3'
+services:
+  calibre:
+    container-name: calibre
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    volumes:
+      - calibre-config:/config
+      - <library>:/library
+volumes:
+  calibre-config:
